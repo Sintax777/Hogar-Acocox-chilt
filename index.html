@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hogar Acocoxóchilt</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: #c9a0e8;
+}
+
+/* HEADER */
+.header {
+    background: #a26de1;
+    color: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo { 
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; 
+    font-size: 22px; 
+}
+
+.search { 
+    width: 40%; 
+    padding: 10px 15px; 
+    border-radius: 20px; 
+    border: none; 
+    background-color: #fff; 
+    color: #333; 
+    font-weight: 500; 
+}
+.search::placeholder { color: #888; font-weight: 400; }
+
+/* BOTONES */
+.cart-btn, .donate-btn {
+    font-family: 'Montserrat', sans-serif;
+    background: #6c5ce7; border: none; padding: 10px 15px; cursor: pointer; margin-left: 5px; border-radius: 20px; font-weight: 600; color: white; transition: background-color 0.3s;
+}
+.cart-btn:hover, .donate-btn:hover { background: #5a4bcf; }
+
+/* TITULOS */
+h1 { 
+    text-align: center; 
+    color: #333; 
+    margin-top: 20px; margin-bottom: 5px; 
+    font-weight: 700; 
+    font-size: 38px; 
+    font-family: 'Montserrat', sans-serif;
+}
+p.subtitle { 
+    text-align: center; 
+    font-weight: 500; 
+    margin-top: 0; 
+    margin-bottom: 20px; 
+    color: #555; 
+    font-size: 18px; 
+}
+
+/* GRID */
+.container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 120px);
+    gap: 10px;
+    padding: 0 20px 20px 20px;
+}
+
+.box {
+    border-radius: 12px; cursor: pointer; transition: transform 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: relative; color: #fff; font-weight: 700; display: flex; align-items: flex-end; padding: 10px 15px; font-size: 16px;
+    background-size: cover; background-position: center;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+}
+.box:hover { transform: scale(1.05); filter: brightness(1.1); }
+
+/* CLASES DE FLORES */
+.b1 { grid-column: 1 / 2; grid-row: 1 / 4; background-image:url('https://i.pinimg.com/originals/2b/aa/f2/2baaf2581c7e00b9d6b46787b5f64ee8.jpg'); }
+.b2 { grid-column: 2 / 4; grid-row: 1 / 2; background-image:url('https://pic.52112.com/JPG-180505/180505_46/Mf9CvzeVcS_small.jpg'); }
+.b3 { grid-column: 2 / 3; grid-row: 2 / 3; background-image:url('https://th.bing.com/th/id/OIP.XxdYx6QSO00McvQb_nPC4gHaFj?w=209&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3'); }
+.b4 { grid-column: 3 / 4; grid-row: 2 / 3; background-image:url('https://www.jardineriaon.com/wp-content/uploads/2025/06/caracteristicas-de-la-flor-de-alcatraz-1.jpg'); }
+.b5 { grid-column: 2 / 4; grid-row: 3 / 4; background-image:url('https://cdn.pixabay.com/photo/2020/04/28/10/22/sun-5103818_960_720.jpg'); }
+.b6 { grid-column: 6 / 7; grid-row: 2 / 4; background-image:url('https://www.concoral.es/fotos/28220187151369498C.jpg'); }
+.b7 { grid-column: 5 / 6; grid-row: 1 / 2; background-image:url('https://cdn.pixabay.com/photo/2015/05/28/21/05/tulip-788572_1280.jpg'); }
+.b8 { grid-column: 6 / 7; grid-row: 1 / 2; background-image:url('https://www.interflora.es/blog/wp-content/uploads/2022/06/lirio.jpg'); }
+.b9 { grid-column: 5 / 6; grid-row: 2 / 4; background-image:url('https://th.bing.com/th/id/R.3ea0726c5e3c5494b7882372895ce406?rik=nICFOUQ%2fz6%2bIQ&riu=http%3a%2f%2fwww.floreriabloom.com%2fcdn%2fshop%2ffiles%2fWEBRAMOPEQUENODEHORTENSIAS.jpg%3fv%3d1696347970&ehk=O7e71PmUgGpVSXqC6xyQQFiv3FvIf2d6dHA%2fCaNmgcg%3d&risl=&pid=ImgRaw&r=0'); }
+.b10 { grid-column: 4 / 5; grid-row: 1 / 4; background-image:url('https://www.meine-orangerie.de/thumbnail/a4/18/28/1651572883/Bougainvillea%20Piccolo%20IMG_0795_1920x1920.jpg?ts=1651572895'); }
+
+/* MODALES Y CARRITO */
+.modal { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); display:none; justify-content:center; align-items:center; z-index:1000; }
+.modal-content { background:white; padding:20px; border-radius:10px; width:320px; text-align:center; box-shadow:0 0 15px rgba(0,0,0,0.3); font-family: 'Open Sans', sans-serif; }
+button { cursor: pointer; border-radius: 5px; border: none; padding: 10px; font-weight: bold; transition: background-color 0.25s ease; font-family: 'Montserrat', sans-serif; }
+.btn-buy { background: #6c5ce7; color: white; width: 100%; margin-top: 15px; font-weight: 600; }
+.btn-buy:hover { background: #5a4bcf; }
+.btn-cancel { margin-top: 10px; background: #ccc; width: 100%; }
+.btn-cancel:hover { background: #aaa; }
+
+.cart { position: fixed; right:0; top:0; width:320px; height:100%; background:white; padding:15px; display:none; overflow-y:auto; box-shadow:-2px 0 15px rgba(0,0,0,0.3); z-index:999; font-family: 'Open Sans', sans-serif; }
+.cart h2 { margin-top:0; margin-bottom:15px; font-weight:700; font-family: 'Montserrat', sans-serif; color:#333; }
+.cart-item { border-bottom:1px solid #eee; padding:10px 0; display:flex; justify-content:space-between; align-items:center; font-weight:500; color:#555; }
+.cart-item p { margin:0; }
+.cart-item button { background:transparent; color:#d33; font-size:20px; padding:0 6px; }
+.total { font-weight:700; font-size:18px; margin-top:15px; margin-bottom:10px; color:#333; }
+
+/* MODAL FINALIZAR COMPRA */
+#direccionDiv { display:block; margin-bottom:10px; }
+.modal label { display:block; text-align:left; margin-top:10px; font-weight:600; }
+.modal input, .modal select { width:100%; padding:8px; margin-top:4px; border-radius:5px; border:1px solid #ccc; }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <div class="logo">Hogar Acocoxóchilt</div>
+    <input class="search" placeholder="Buscar flores..." />
+    <div>
+        <button class="donate-btn" onclick="abrirDonacion()">Apoyar con una donación</button>
+        <button class="cart-btn" onclick="toggleCart()">Ver carrito (<span id="count">0</span>)</button>
+    </div>
+</div>
+
+<h1>Bienvenido a Hogar Acocoxóchilt</h1>
+<p class="subtitle">Descubre nuestras flores y comparte alegría</p>
+
+<div class="container">
+    <div class="box b1" onclick="abrir(1)">Dalia - $25</div>
+    <div class="box b2" onclick="abrir(0)">Rosa - $20</div>
+    <div class="box b3" onclick="abrir(2)">Cempasuchil - $25</div>
+    <div class="box b4" onclick="abrir(3)">Alcatraz - $25</div>
+    <div class="box b5" onclick="abrir(5)">Girasol - $25</div>
+    <div class="box b6" onclick="abrir(4)">Maceta de Magnolias - $140</div>
+    <div class="box b7" onclick="abrir(6)">Tulipán - $30</div>
+    <div class="box b8" onclick="abrir(7)">Lirio - $35</div>
+    <div class="box b9" onclick="abrir(8)">Hortencia - $50</div>
+    <div class="box b10" onclick="abrir(9)">Bugambilias - $80</div>
+</div>
+
+<!-- MODALES -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <h3 id="nombre"></h3>
+        <p id="precio"></p>
+        <input type="number" id="cantidad" value="1" min="1" />
+        <p>Total: $<span id="total">0</span></p>
+        <button class="btn-buy" onclick="agregar()">Añadir al carrito</button>
+        <button class="btn-cancel" onclick="cerrarModal()">Cancelar</button>
+    </div>
+</div>
+
+<div class="modal" id="donacionModal">
+    <div class="modal-content">
+        <h3>Donación</h3>
+        <input type="number" id="montoDonacion" placeholder="Cantidad" min="1" />
+        <button class="btn-buy" onclick="donar()">Donar</button>
+        <button class="btn-cancel" onclick="cerrarDonacion()">Cancelar</button>
+    </div>
+</div>
+
+<div class="cart" id="cart">
+    <h2>Carrito</h2>
+    <div id="items"></div>
+    <p class="total">Total: $<span id="totalCarrito">0</span></p>
+    <button class="btn-buy" onclick="toggleFinalizar()">Finalizar compra</button>
+</div>
+
+<div class="modal" id="finalizarModal">
+    <div class="modal-content">
+        <h3>Información de envío / recogida</h3>
+        <label>Nombre:</label>
+        <input type="text" id="nombreCliente" placeholder="Tu nombre" />
+        <label>Teléfono o Email:</label>
+        <input type="text" id="contactoCliente" placeholder="Teléfono o Email" />
+        <label>Opción:</label>
+        <select id="opcionEnvio">
+            <option value="envio">Envío a domicilio</option>
+            <option value="recoger">Recoger en sucursal</option>
+        </select>
+        <div id="direccionDiv">
+            <label>Dirección:</label>
+            <input type="text" id="direccionCliente" placeholder="Dirección de envío" />
+        </div>
+        <button class="btn-buy" onclick="confirmarCompra()">Confirmar</button>
+        <button class="btn-cancel" onclick="cerrarFinalizar()">Cancelar</button>
+    </div>
+</div>
+
+<script>
+const productos = [
+  {nombre:"Rosa", precio:20},
+  {nombre:"Dalia", precio:25},
+  {nombre:"Cempasuchil", precio:25},
+  {nombre:"Alcatraz", precio:25},
+  {nombre:"Maceta de Magnolias", precio:140},
+  {nombre:"Girasol", precio:25},
+  {nombre:"Tulipan", precio:30},
+  {nombre:"Lirio", precio:35},
+  {nombre:"Hortencia", precio:50},
+  {nombre:"Bugambilias", precio:80}
+];
+
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+let actual = null;
+
+function abrir(i){
+    actual = productos[i];
+    document.getElementById("modal").style.display = "flex";
+    document.getElementById("nombre").innerText = actual.nombre;
+    document.getElementById("precio").innerText = "$" + actual.precio;
+    document.getElementById("cantidad").value = 1;
+    actualizarTotal();
+}
+window.abrir = abrir;
+
+function cerrarModal(){ document.getElementById("modal").style.display = "none"; }
+window.cerrarModal = cerrarModal;
+
+function actualizarTotal(){
+    const cantidad = parseInt(document.getElementById("cantidad").value);
+    const total = cantidad * actual.precio;
+    document.getElementById("total").innerText = total;
+}
+document.getElementById("cantidad").addEventListener("input", actualizarTotal);
+
+function agregar(){
+    const cantidad = parseInt(document.getElementById("cantidad").value);
+    if(cantidad < 1) { alert("Ingresa una cantidad válida"); return; }
+    const idx = carrito.findIndex(item => item.nombre === actual.nombre);
+    if(idx >= 0){ carrito[idx].cantidad += cantidad; }
+    else { carrito.push({nombre: actual.nombre, precio: actual.precio, cantidad}); }
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    cerrarModal();
+    actualizarContador();
+    alert("Agregado al carrito");
+}
+window.agregar = agregar;
+
+function toggleCart(){
+    const c = document.getElementById("cart");
+    if(c.style.display === "block"){ c.style.display = "none"; }
+    else { c.style.display = "block"; renderCarrito(); }
+}
+window.toggleCart = toggleCart;
+
+function renderCarrito(){
+    const itemsDiv = document.getElementById("items");
+    itemsDiv.innerHTML = "";
+    let total = 0;
+    carrito.forEach((item, i) => {
+        const subtotal = item.precio * item.cantidad;
+        total += subtotal;
+        itemsDiv.innerHTML += `<div class="cart-item"><p>${item.nombre} x${item.cantidad} - $${subtotal}</p><button onclick="eliminar(${i})" title="Eliminar">×</button></div>`;
+    });
+    document.getElementById("totalCarrito").innerText = total;
+}
+
+function eliminar(i){
+    carrito.splice(i,1);
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    renderCarrito();
+    actualizarContador();
+}
+window.eliminar = eliminar;
+
+function actualizarContador(){
+    document.getElementById("count").innerText = carrito.reduce((acc, item)=>acc+item.cantidad,0);
+}
+
+window.toggleFinalizar = function(){
+    document.getElementById("finalizarModal").style.display = "flex";
+}
+window.cerrarFinalizar = function(){
+    document.getElementById("finalizarModal").style.display = "none";
+}
+document.getElementById("opcionEnvio").addEventListener("change", function(){
+    if(this.value === "envio"){
+        document.getElementById("direccionDiv").style.display = "block";
+    } else {
+        document.getElementById("direccionDiv").style.display = "none";
+    }
+});
+window.confirmarCompra = function(){
+    const nombre = document.getElementById("nombreCliente").value.trim();
+    const contacto = document.getElementById("contactoCliente").value.trim();
+    const opcion = document.getElementById("opcionEnvio").value;
+    const direccion = document.getElementById("direccionCliente").value.trim();
+    if(!nombre || !contacto || (opcion==="envio" && !direccion)){ alert("Completa todos los campos"); return; }
+    const pedido = {
+        cliente:nombre, contacto, opcion, direccion: opcion==="envio"?direccion:"Recoger en sucursal",
+        productos:carrito, total:carrito.reduce((acc,item)=>acc+item.precio*item.cantidad,0),
+        fecha:new Date().toISOString()
+    };
+    let pedidos = JSON.parse(localStorage.getItem("pedidos"))||[];
+    pedidos.push(pedido);
+    localStorage.setItem("pedidos",JSON.stringify(pedidos));
+    carrito=[];
+    localStorage.removeItem('carrito');
+    actualizarContador();
+    renderCarrito();
+    cerrarFinalizar();
+    alert("Compra realizada con éxito. Gracias por apoyar al hogar");
+}
+
+window.abrirDonacion = function(){
+    document.getElementById("donacionModal").style.display = "flex";
+}
+window.cerrarDonacion = function(){ document.getElementById("donacionModal").style.display = "none"; }
+window.donar = function(){
+    const monto = parseInt(document.getElementById("montoDonacion").value);
+    if(monto < 1){ alert("Ingresa una cantidad válida"); return; }
+    let donaciones = JSON.parse(localStorage.getItem("donaciones"))||[];
+    donaciones.push({monto, fecha:new Date().toISOString()});
+    localStorage.setItem("donaciones",JSON.stringify(donaciones));
+    cerrarDonacion();
+    alert("Gracias por tu donación");
+}
+
+actualizarContador();
+</script>
+</body>
+</html>
